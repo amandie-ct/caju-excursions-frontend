@@ -1,16 +1,18 @@
 import Carousel from './components/Carousel';
-import Card from './components/Card';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import { ExcursionsContext } from './contexts/excursions-context';
 import { excursionsMock } from './mocks/excursions';
 
 function App() {
   return (
-    <main className="grid min-h-screen grid-cols-1 grid-rows-[88px_auto_1fr] bg-slate-100 lg:grid-cols-[280px_1fr] lg:grid-rows-[88px_1fr]">
+    <main className="min-h-screen bg-jade lg:grid-rows-[88px_1fr]">
+      <Banner text="Don’t miss out on upcoming events. Subscribe today!" />
+      <Navbar />
       <section className="px-6 py-6 lg:px-8 lg:py-8">
-        <Carousel>
-          {excursionsMock.map((excursion) => (
-            <Card key={excursion.id} {...excursion} />
-          ))}
-        </Carousel>
+        <ExcursionsContext.Provider value={excursionsMock}>
+          <Carousel />
+        </ExcursionsContext.Provider>
       </section>
     </main>
   );

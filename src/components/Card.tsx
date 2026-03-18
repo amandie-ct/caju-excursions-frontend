@@ -5,12 +5,11 @@ type ExcursionCard = Omit<Excursion, 'description_text' | 'tags'>;
 
 const Card = (props: ExcursionCard) => {
   return (
-    <section className="overflow-hidden bg-white shadow-card">
-      <img
-        src={props.promo_img}
-        alt={props.title}
-        className="h-56 w-full object-cover"
-      />
+    <section className="w-[22rem] overflow-hidden bg-white shadow-card">
+      <div
+        className="h-56 w-full object-contain"
+        style={{ backgroundImage: `url(${props.promo_img})` }}
+      ></div>
       <div className="space-y-3 p-5">
         <div className="space-y-1">
           <h2 className="text-lg font-semibold text-slate-950">

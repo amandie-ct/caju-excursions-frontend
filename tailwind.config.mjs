@@ -11,6 +11,7 @@ export default {
           900: '#172554',
         },
         sand: '#f8f5ef',
+        jade: '#e0e7d7',
       },
       boxShadow: {
         card: '0 24px 60px -28px rgba(15, 23, 42, 0.35)',
