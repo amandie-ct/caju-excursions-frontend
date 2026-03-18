@@ -1,6 +1,6 @@
 export type PurchaseStatus = 'pending' | 'paid' | 'cancelled' | 'refunded';
 
-export interface Event {
+export interface Excursion {
   id: string;
   title: string;
   promo_img: string;
@@ -13,7 +13,7 @@ export interface Event {
   tags: string;
 }
 
-export interface EventPurchase {
+export interface ExcursionPurchase {
   id: string;
   event_id: string;
   reservation_ids: string[];

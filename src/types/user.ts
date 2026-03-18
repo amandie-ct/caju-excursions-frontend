@@ -1,6 +1,6 @@
 import type { SeatReservation } from './reservation';
 import type { CreditCardPaymentMethod } from './payment';
-import type { EventPurchase } from './event';
+import type { ExcursionPurchase } from './event';
 
 export interface Address {
   street: string;
@@ -22,7 +22,7 @@ export interface User {
   payment_methods: CreditCardPaymentMethod[];
   default_payment_method_id?: string;
   seat_reservations: SeatReservation[];
-  event_purchases: EventPurchase[];
+  event_purchases: ExcursionPurchase[];
   created_at: string;
   updated_at: string;
 }

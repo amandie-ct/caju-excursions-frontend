@@ -1,0 +1,95 @@
+import type { Excursion } from '@/types/event';
+
+export const excursionsMock: Excursion[] = [
+  {
+    id: 'event-1',
+    title: 'Canoa Quebrada Weekend',
+    promo_img: '/assets/1.webp',
+    date_departure: '2026-04-18',
+    date_return: '2026-04-19',
+    destination_city: 'Canoa Quebrada',
+    likes: 128,
+    description_text:
+      'A weekend trip with beach time, live music, and a sunset stop by the cliffs.',
+    price: 'R$ 249,90',
+    tags: 'beach, weekend',
+  },
+  {
+    id: 'event-2',
+    title: 'Jericoacoara Experience',
+    promo_img: '/assets/2.webp',
+    date_departure: '2026-05-02',
+    date_return: '2026-05-04',
+    destination_city: 'Jericoacoara',
+    likes: 213,
+    description_text:
+      'Three days exploring the dunes, lagoon, and main village with guided stops.',
+    price: 'R$ 589,90',
+    tags: 'adventure, beach',
+  },
+  {
+    id: 'event-3',
+    title: 'Morro Branco Escape',
+    promo_img: '/assets/3.webp',
+    date_departure: '2026-05-16',
+    date_return: '2026-05-16',
+    destination_city: 'Morro Branco',
+    likes: 84,
+    description_text:
+      'A day trip focused on the colorful cliffs, labyrinth, and seaside views.',
+    price: 'R$ 139,90',
+    tags: 'day trip, beach',
+  },
+  {
+    id: 'event-4',
+    title: 'Guaramiranga Mountain Retreat',
+    promo_img: '/assets/4.webp',
+    date_departure: '2026-06-06',
+    date_return: '2026-06-07',
+    destination_city: 'Guaramiranga',
+    likes: 167,
+    description_text:
+      'A cooler-weather escape with nature trails, local food, and charming scenery.',
+    price: 'R$ 279,90',
+    tags: 'nature, mountains',
+  },
+  {
+    id: 'event-5',
+    title: 'Praia de Lagoinha Tour',
+    promo_img: '/assets/5.webp',
+    date_departure: '2026-06-20',
+    date_return: '2026-06-20',
+    destination_city: 'Lagoinha',
+    likes: 96,
+    description_text:
+      'A relaxing beach day with optional buggy rides and stops for regional cuisine.',
+    price: 'R$ 149,90',
+    tags: 'beach, family',
+  },
+  {
+    id: 'event-6',
+    title: 'Paracuru Sunset Route',
+    promo_img: '/assets/6.webp',
+    date_departure: '2026-07-11',
+    date_return: '2026-07-11',
+    destination_city: 'Paracuru',
+    likes: 74,
+    description_text:
+      'A one-day route with time by the sea and a sunset finish at the boardwalk.',
+    price: 'R$ 129,90',
+    tags: 'sunset, day trip',
+  },
+  {
+    id: 'event-7',
+    title: 'Flecheiras Getaway',
+    promo_img: '/assets/7.webp',
+    date_departure: '2026-07-25',
+    date_return: '2026-07-26',
+    destination_city: 'Flecheiras',
+    likes: 141,
+    description_text:
+      'A short getaway with beach structure, free time, and a scenic coastal route.',
+    price: 'R$ 259,90',
+    tags: 'beach, getaway',
+  },
+];

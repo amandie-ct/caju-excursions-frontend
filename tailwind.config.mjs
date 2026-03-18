@@ -15,6 +15,9 @@ export default {
       boxShadow: {
         card: '0 24px 60px -28px rgba(15, 23, 42, 0.35)',
       },
+      fontFamily: {
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],
