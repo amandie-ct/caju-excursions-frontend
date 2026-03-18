@@ -34,7 +34,7 @@ const Carousel = () => {
   };
   return (
     <section className=" max-w-7xl mt-20 mx-auto">
-      <h1 className="my-4 text-2xl text-black">Next Events</h1>
+      <h1 className="my-4 text-2xl text-black text-bold">Next Events</h1>
       <section className="mx-auto flex max-w-7xl items-center gap-2">
         <div className="flex h-20 items-center">
           <button
