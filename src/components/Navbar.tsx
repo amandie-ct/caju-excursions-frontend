@@ -3,7 +3,7 @@ import Button from './Button';
 const Navbar = () => {
   return (
     <nav className="sticky top-0 z-20 flex w-full border-b border-gray-400 bg-white px-2 py-2 backdrop-blur-lg">
-      <section className="flex w-6xl items-center justify-between mx-auto">
+      <section className="flex w-5xl items-center justify-between mx-auto">
         <div className="flex items-center hover:bg-gray-100 px-2 group">
           <img
             src="/assets/caju.png"
