@@ -12,7 +12,7 @@ function App() {
       <Banner text="Don’t miss out on upcoming events. Subscribe today!" />
       <Navbar />
       <Hero />
-      <section className="px-6 py-6 ">
+      <section id="schedules" className="px-6 py-6 ">
         <ExcursionsContext.Provider value={excursionsMock}>
           <Carousel />
         </ExcursionsContext.Provider>

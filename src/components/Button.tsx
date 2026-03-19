@@ -1,16 +1,39 @@
+import type { ReactNode } from 'react';
+
 interface IButton {
   text: string;
   handleClick?: () => void;
   color?: string;
+  href?: string;
+  icon?: ReactNode;
+  className?: string;
 }
 
-const Button = (props: IButton) => {
+const Button = ({
+  text,
+  handleClick,
+  color,
+  href,
+  icon,
+  className,
+}: IButton) => {
+  const buttonClassName = `inline-flex items-center gap-3 rounded-full border border-b-black px-5 py-3 text-sm font-semibold hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#000] ${
+    color ? color : 'bg-white'
+  } ${className ? className : ''}`;
+
+  if (href) {
+    return (
+      <a href={href} className={buttonClassName}>
+        <span>{text}</span>
+        {icon}
+      </a>
+    );
+  }
+
   return (
-    <button
-      className={`py-3 px-5 ${props.color ? props.color : 'bg-white'} font-semibold rounded-full text-sm border border-b-black hover:-translate-y-0.5 hover:shadow-[0_4px_0_0_#000]`}
-      onClick={props.handleClick}
-    >
-      {props.text}
+    <button className={buttonClassName} onClick={handleClick}>
+      <span>{text}</span>
+      {icon}
     </button>
   );
 };

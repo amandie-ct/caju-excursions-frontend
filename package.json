@@ -12,7 +12,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/kavoon": "5.2.8",
     "@fontsource/montserrat": "5.2.8",
+    "@fontsource/ultra": "5.2.7",
     "lucide-react": "0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"

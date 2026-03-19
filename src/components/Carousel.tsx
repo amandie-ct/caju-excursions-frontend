@@ -55,7 +55,9 @@ const Carousel = () => {
               <div
                 key={excursion.id}
                 className={`shrink-0 transition-all duration-300 ${
-                  index === currentIndex ? 'scale-100' : 'scale-90'
+                  index === currentIndex
+                    ? 'scale-100 hover:-translate-y-2'
+                    : 'scale-90'
                 }`}
               >
                 <Card {...excursion} />

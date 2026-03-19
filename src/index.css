@@ -2,6 +2,22 @@
 @config '../tailwind.config.mjs';
 
 @layer base {
+  @font-face {
+    font-family: 'Kavoon';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/kavoon-latin-400-normal.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Ultra';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/ultra-latin-400-normal.woff2') format('woff2');
+  }
+
   :root {
     font-family:
       'Montserrat',
@@ -34,5 +50,15 @@
 
   button {
     cursor: pointer;
+  }
+}
+
+@layer components {
+  .font-kavoon {
+    font-family: 'Kavoon', serif;
+  }
+
+  .font-ultra {
+    font-family: 'Ultra', serif;
   }
 }
