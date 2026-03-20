@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           <aside className="space-y-6 border-t border-slate-950/15 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <p className="font-kavoon text-xl leading-none">Caju Excursions</p>
+            <img src="/assets/caju_excursions.png" width={120} />
             <p className="max-w-xs text-md leading-8 text-slate-900/85">
               Weekly excursion schedules, confirmed pickup times, and curated
               departures for travelers who want an easier weekend escape.

@@ -5,7 +5,7 @@ type ExcursionCard = Omit<Excursion, 'description_text' | 'tags'>;
 
 const Card = (props: ExcursionCard) => {
   return (
-    <section className="w-88 overflow-hidden bg-white border border-gray-400 rounded-xl">
+    <section className="w-88 overflow-hidden bg-white border border-black rounded-4xl">
       <div
         className="h-56 w-full object-contain"
         style={{
