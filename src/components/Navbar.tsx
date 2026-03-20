@@ -2,8 +2,8 @@ import Button from './Button';
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-20 flex w-full border-b border-gray-400 bg-white px-2 py-2 backdrop-blur-lg">
-      <section className="flex w-5xl items-center justify-between mx-auto">
+    <nav className="sticky top-0 z-20 w-full border-b border-gray-400 bg-white px-4 py-2 backdrop-blur-lg lg:px-8 xl:px-10">
+      <section className="mx-auto flex w-full items-center justify-between">
         <div className="flex items-center hover:bg-gray-100 px-2 group">
           <img
             src="/assets/caju.png"

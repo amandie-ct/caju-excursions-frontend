@@ -10,7 +10,6 @@ export default {
           600: '#1d4ed8',
           900: '#172554',
         },
-        sand: '#f8f5ef',
         jade: '#e0e7d7',
       },
       boxShadow: {

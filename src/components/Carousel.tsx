@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Card from './Card';
 
@@ -9,32 +9,55 @@ const SLIDE_GAP_REM = 1;
 
 const Carousel = () => {
   const excursions = useContext(ExcursionsContext);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const totalExcursions = excursions?.length ?? 0;
+  const [currentIndex, setCurrentIndex] = useState(totalExcursions > 0 ? 1 : 0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+  const loopedExcursions =
+    totalExcursions > 1 && excursions
+      ? [excursions[totalExcursions - 1], ...excursions, excursions[0]]
+      : (excursions ?? []);
+  const activeIndex =
+    totalExcursions > 0
+      ? (currentIndex - 1 + totalExcursions) % totalExcursions
+      : 0;
   const translateX = `calc(-${currentIndex} * (${SLIDE_WIDTH_REM}rem + ${SLIDE_GAP_REM}rem))`;
 
-  const handlePrevious = () => {
-    if (totalExcursions === 0) return;
+  useEffect(() => {
+    setCurrentIndex(totalExcursions > 1 ? 1 : 0);
+    setIsTransitionEnabled(false);
+  }, [totalExcursions]);
 
-    let previousIndex = currentIndex - 1;
-    if (previousIndex < 0) {
-      previousIndex = totalExcursions - 1;
-    }
-    setCurrentIndex(previousIndex);
+  const handlePrevious = () => {
+    if (totalExcursions <= 1) return;
+
+    setIsTransitionEnabled(true);
+    setCurrentIndex((previousIndex) => previousIndex - 1);
   };
 
   const handleNext = () => {
-    if (totalExcursions === 0) return;
+    if (totalExcursions <= 1) return;
 
-    let nextIndex = currentIndex + 1;
-    if (nextIndex >= totalExcursions) {
-      nextIndex = 0;
-    }
-    setCurrentIndex(nextIndex);
+    setIsTransitionEnabled(true);
+    setCurrentIndex((nextIndex) => nextIndex + 1);
   };
+
+  const handleTransitionEnd = () => {
+    if (totalExcursions <= 1) return;
+
+    if (currentIndex === 0) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(totalExcursions);
+    }
+
+    if (currentIndex === totalExcursions + 1) {
+      setIsTransitionEnabled(false);
+      setCurrentIndex(1);
+    }
+  };
+
   return (
     <section className=" max-w-7xl mt-20 mx-auto">
-      <h1 className="my-4 text-2xl text-black text-bold">Next Events</h1>
+      <h1 className="my-4 text-2xl text-black text-bold">Upcoming events</h1>
       <section className="mx-auto flex max-w-7xl items-center gap-2">
         <div className="flex h-20 items-center">
           <button
@@ -48,14 +71,21 @@ const Carousel = () => {
         </div>
         <div className="min-w-0 flex-1 overflow-hidden">
           <div
-            className="flex w-max gap-4 transition-transform duration-500 ease-out"
+            className={`flex w-max gap-4 ${
+              isTransitionEnabled
+                ? 'transition-transform duration-500 ease-out'
+                : 'transition-none'
+            }`}
             style={{ transform: `translateX(${translateX})` }}
+            onTransitionEnd={handleTransitionEnd}
           >
-            {excursions?.map((excursion, index) => (
+            {loopedExcursions.map((excursion, index) => (
               <div
-                key={excursion.id}
+                key={`${excursion.id}-${index}`}
                 className={`shrink-0 transition-all duration-300 ${
-                  index === currentIndex
+                  totalExcursions > 0 &&
+                  (index - 1 + totalExcursions) % totalExcursions ===
+                    activeIndex
                     ? 'scale-100 hover:-translate-y-2'
                     : 'scale-90'
                 }`}
