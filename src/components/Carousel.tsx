@@ -114,13 +114,15 @@ const Carousel = () => {
               return (
                 <div
                   key={`${excursion.id}-${index}`}
-                  className={`pointer-events-none shrink-0 transition-all duration-300 ${
-                    isActive
-                      ? 'scale-100 -translate-y-1 rounded-xl shadow-[0_8px_0_0_#000]'
-                      : 'scale-90'
+                  className={`shrink-0 transition-all duration-300 ${
+                    isActive ? 'scale-100 -translate-y-1' : 'scale-90'
                   }`}
                 >
-                  <Card {...excursion} />
+                  <Card
+                    {...excursion}
+                    to={`/event/${excursion.id}`}
+                    className={isActive ? 'shadow-[0_8px_0_0_#000]' : ''}
+                  />
                 </div>
               );
             })}

@@ -1,9 +1,16 @@
+import { Link } from 'react-router-dom';
+
 import { ArrowRight } from 'lucide-react';
 import Button from './Button';
 
+interface FooterLink {
+  label: string;
+  to: string;
+}
+
 interface FooterColumn {
   title: string;
-  links: string[];
+  links: FooterLink[];
 }
 
 interface FooterLinksProps extends FooterColumn {}
@@ -14,10 +21,10 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
       <h2 className="text-xl font-bold text-black">{title}</h2>
       <ul className="space-y-4 text-md text-slate-900/85">
         {links.map((link) => (
-          <li key={link}>
-            <a href="#" className="hover:bg-stone-300  transition">
-              {link}
-            </a>
+          <li key={link.label}>
+            <Link to={link.to} className="transition hover:bg-stone-300">
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
@@ -28,39 +35,39 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
 const Footer = () => {
   const footerColumns: FooterColumn[] = [
     {
-      title: 'Schedules',
+      title: 'Events',
       links: [
-        'Weekend routes',
-        'Holiday departures',
-        'Popular destinations',
-        'Last-minute seats',
+        { label: 'All departures', to: '/event' },
+        { label: 'Seat selection', to: '/seat-selection' },
+        { label: 'Cart', to: '/cart' },
+        { label: 'Checkout', to: '/checkout' },
+      ],
+    },
+    {
+      title: 'Account',
+      links: [
+        { label: 'Sign in', to: '/sign-in' },
+        { label: 'Sign up', to: '/sign-up' },
+        { label: 'Manage my events', to: '/manage-my-events' },
+        { label: 'Reimbursement', to: '/reimbursement' },
       ],
     },
     {
       title: 'Planning',
       links: [
-        'Pickup locations',
-        'Trip checklist',
-        'Payment options',
-        'Cancellation policy',
-      ],
-    },
-    {
-      title: 'Travelers',
-      links: [
-        'Group reservations',
-        'Travel updates',
-        'Frequently asked questions',
-        'Customer support',
+        { label: 'Home', to: '/' },
+        { label: 'Featured event', to: '/event/event-1' },
+        { label: 'Upcoming trips', to: '/manage-my-events' },
+        { label: 'Payment review', to: '/checkout' },
       ],
     },
     {
       title: 'Company',
       links: [
-        'About Caju',
-        'Partner inquiries',
-        'Work with us',
-        'Contact team',
+        { label: 'About Caju', to: '/' },
+        { label: 'Support hub', to: '/reimbursement' },
+        { label: 'Book a new trip', to: '/event' },
+        { label: 'Customer area', to: '/sign-in' },
       ],
     },
   ];
@@ -83,7 +90,7 @@ const Footer = () => {
             </p>
             <Button
               text="See next departures"
-              href="#"
+              to="/event"
               color="bg-amber-500"
               className="text-base"
               icon={<ArrowRight />}

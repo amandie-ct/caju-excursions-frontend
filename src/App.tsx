@@ -1,24 +1,42 @@
-import Carousel from './components/Carousel';
-import Navbar from './components/Navbar';
-import Banner from './components/Banner';
-import Hero from './components/Hero';
-import Footer from './components/Footer';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ExcursionsContext } from './contexts/excursions-context';
+import AppLayout from './layouts/AppLayout';
 import { excursionsMock } from './mocks/excursions';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import EventDetailPage from './pages/EventDetailPage';
+import EventsPage from './pages/EventsPage';
+import HomePage from './pages/HomePage';
+import ManageMyEventsPage from './pages/ManageMyEventsPage';
+import NotFoundPage from './pages/NotFoundPage';
+import ReimbursementPage from './pages/ReimbursementPage';
+import SeatSelectionPage from './pages/SeatSelectionPage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
 
 function App() {
   return (
-    <main className="min-h-screen bg-white">
-      <Banner text="Don’t miss out on upcoming events. Subscribe today!" />
-      <Navbar />
-      <Hero />
-      <section id="schedules" className="px-6 py-6 ">
-        <ExcursionsContext.Provider value={excursionsMock}>
-          <Carousel />
-        </ExcursionsContext.Provider>
-      </section>
-      <Footer />
-    </main>
+    <ExcursionsContext.Provider value={excursionsMock}>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="event" element={<EventsPage />} />
+          <Route path="event/:id" element={<EventDetailPage />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="seat-selection" element={<SeatSelectionPage />} />
+          <Route path="sign-in" element={<SignInPage />} />
+          <Route path="sign-up" element={<SignUpPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="reimbursement" element={<ReimbursementPage />} />
+          <Route
+            path="reimbursment"
+            element={<Navigate to="/reimbursement" replace />}
+          />
+          <Route path="manage-my-events" element={<ManageMyEventsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </ExcursionsContext.Provider>
   );
 }
 
